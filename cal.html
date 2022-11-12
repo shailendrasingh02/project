@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+    {   
+    background-color: aquamarine;
+    
+    }
+   div
+    {
+        text-align: center;
+    
+    background-color: bisque;
+    border:1px solid green;
+    width :500px;
+    margin-left: 650px;
+
+    margin-right: 50px;
+    margin-top: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+    }
+    </style>
+</head>
+<body>
+    
+    
+       <div>
+        <h2>Grade Calcy</h2>
+        <input type="text" placeholder="Computer" id="Comp" value="" required>
+        <br>
+        <input type="text" placeholder="maths" id="maths" value=""  required>
+        <br>
+        <input type="text" placeholder="chemistry" id="chem" value=""  required>
+        <br>
+        <input type="text" placeholder="physics" id="phy" value=""  required>
+        <br>
+        <br>
+        <input type="button" name="" value="Submit" onclick="cal()">
+        <br>
+    
+        <p id="showdata"> </p>
+    </div>
+    <script>
+        const cal=() => {
+            let Comp = document.getElementById("Comp").value;
+            let maths = document.getElementById("maths").value;
+            let chem = document.getElementById("chem").value;
+            let phy = document.getElementById("phy").value;
+            let totalgrades = parseFloat(Comp) + parseFloat(maths) + parseFloat(chem) + parseFloat(phy);
+            let grades="";
+            
+            let parc = (totalgrades/400)*100
+            
+            if(parc <=100 && parc>=80){
+                grades="A";
+            }
+            else if(parc <=79.99 && parc>=60){
+                grades="B";
+            }
+            else if(parc <=59.99 && parc>=40){
+                grades="C";
+            }
+            else {
+                grades="F";
+            }
+            if (parc>=39.99)
+            {
+                document.getElementById("showdata").innerHTML=` out of 400 total marks is ${totalgrades} amd Parcentenage is ${parc}%.<br> your grades is ${grades} and You are PASS`
+            }
+            else{
+                document.getElementById("showdata").innerHTML=` out of 400 total marks is ${totalgrades} amd Parcentenage is ${parc}%.<br> your grades is ${grades} and You are FAIL`
+            }
+           
+        }
+    </script>
+</body>
+</html>
